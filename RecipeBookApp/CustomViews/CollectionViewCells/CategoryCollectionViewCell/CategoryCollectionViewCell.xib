@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCollectionViewCell" id="gTV-IL-0wX" customClass="CategoryCollectionViewCell" customModule="RecipeBookApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="56"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="56"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8p-bK-IXe" customClass="CardView" customModule="RecipeBookApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="56"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4cj-de-KdA">
+                                <rect key="frame" x="8" y="8" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Lji-pY-cfs"/>
+                                    <constraint firstAttribute="width" constant="40" id="vWO-X9-Rf6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOy-1x-YWT">
+                                <rect key="frame" x="56" y="20.333333333333332" width="86" height="15.666666666666668"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="56" id="Hpl-wr-hO0"/>
+                            <constraint firstAttribute="bottom" secondItem="4cj-de-KdA" secondAttribute="bottom" constant="8" id="L1H-ct-9kc"/>
+                            <constraint firstItem="JOy-1x-YWT" firstAttribute="leading" secondItem="4cj-de-KdA" secondAttribute="trailing" constant="8" id="Ojv-zR-Pju"/>
+                            <constraint firstAttribute="width" constant="150" id="R3M-QK-2LI"/>
+                            <constraint firstAttribute="trailing" secondItem="JOy-1x-YWT" secondAttribute="trailing" constant="8" id="dXx-N3-vsc"/>
+                            <constraint firstItem="4cj-de-KdA" firstAttribute="top" secondItem="E8p-bK-IXe" secondAttribute="top" constant="8" id="eGw-SZ-sFY"/>
+                            <constraint firstItem="4cj-de-KdA" firstAttribute="leading" secondItem="E8p-bK-IXe" secondAttribute="leading" constant="8" id="f9H-SE-XW3"/>
+                            <constraint firstItem="JOy-1x-YWT" firstAttribute="centerY" secondItem="4cj-de-KdA" secondAttribute="centerY" id="odW-PW-NwM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="E8p-bK-IXe" secondAttribute="trailing" id="Oxv-YL-Nhn"/>
+                <constraint firstItem="E8p-bK-IXe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bfI-qA-bye"/>
+                <constraint firstAttribute="bottom" secondItem="E8p-bK-IXe" secondAttribute="bottom" id="dee-QE-dAG"/>
+                <constraint firstItem="E8p-bK-IXe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oBL-Fp-bY0"/>
+            </constraints>
+            <size key="customSize" width="150" height="56"/>
+            <connections>
+                <outlet property="categoryImageView" destination="4cj-de-KdA" id="IPt-hW-jMd"/>
+                <outlet property="categoryTitleLbl" destination="JOy-1x-YWT" id="Nc1-2o-IAh"/>
+            </connections>
+            <point key="canvasLocation" x="82.44274809160305" y="21.83098591549296"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
