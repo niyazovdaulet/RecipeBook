@@ -19,6 +19,7 @@ class ListFavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         title = "Favorites"
         registerCells()
         

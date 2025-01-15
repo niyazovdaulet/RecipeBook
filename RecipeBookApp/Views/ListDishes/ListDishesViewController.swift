@@ -1,10 +1,3 @@
-//
-//  ListDishesViewController.swift
-//  RecipeBookApp
-//
-//  Created by Daulet on 31/10/2023.
-//
-
 import UIKit
 import ProgressHUD
 
@@ -20,27 +13,17 @@ class ListDishesViewController: UIViewController {
         super.viewDidLoad()
 
         title = category.name
+        
+        // Use the dishes directly from the category object
+        dishes = category.dishes ?? []
+        
         registerCells()
-        
-        ProgressHUD.animate(symbol: "slowmo")
-        NetworkService.shared.fetchCategoryDishes(categoryId: category.id ?? "") { [weak self] (result) in
-            switch result {
-            case .success(let dishes):
-                ProgressHUD.dismiss()
-                self?.dishes = dishes
-                self?.tableView.reloadData()
-            case .failure(let error):
-                ProgressHUD.error(error.localizedDescription)
-            }
-        }
-        
+        tableView.reloadData()
     }
     
-
     private func registerCells() {
         tableView.register(UINib(nibName: DishListTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DishListTableViewCell.identifier)
     }
-
 
 }
 
@@ -48,6 +31,7 @@ extension ListDishesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dishes.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DishListTableViewCell.identifier) as! DishListTableViewCell
         cell.setup(dish: dishes[indexPath.row])

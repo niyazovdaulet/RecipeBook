@@ -12,6 +12,7 @@ enum AppError: LocalizedError {
     case unkownError
     case invalidUrl
     case serverError(String)
+    case fileNotFound
     
     var errorDescription: String? {
         switch self {
@@ -23,6 +24,8 @@ enum AppError: LocalizedError {
             return "Hey, give me a valid url"
         case .serverError(let error):
             return error
+        case .fileNotFound:
+            return "The requested file was not found in the app bundle."
         }
     }
 }

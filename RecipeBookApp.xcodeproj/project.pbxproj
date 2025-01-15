@@ -13,6 +13,7 @@
 		56261A5A2AE87C6300D572C3 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56261A592AE87C6300D572C3 /* OnboardingSlide.swift */; };
 		56261A5C2AE87F8B00D572C3 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56261A5B2AE87F8B00D572C3 /* OnboardingCollectionViewCell.swift */; };
 		562B1BD82AF2A005005C5875 /* AllDishes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562B1BD72AF2A005005C5875 /* AllDishes.swift */; };
+		56350C212D2F364F00D64672 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 56350C1F2D2F35D700D64672 /* data.json */; };
 		56610E902AF835EE00B7F29C /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56610E8F2AF835EE00B7F29C /* Favorite.swift */; };
 		56A6F6322AE6C52D00797954 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A6F6312AE6C52D00797954 /* AppDelegate.swift */; };
 		56A6F6342AE6C52D00797954 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A6F6332AE6C52D00797954 /* SceneDelegate.swift */; };
@@ -50,6 +51,7 @@
 		56261A592AE87C6300D572C3 /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		56261A5B2AE87F8B00D572C3 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		562B1BD72AF2A005005C5875 /* AllDishes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDishes.swift; sourceTree = "<group>"; };
+		56350C1F2D2F35D700D64672 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		56610E8F2AF835EE00B7F29C /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		56A6F62E2AE6C52D00797954 /* RecipeBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A6F6312AE6C52D00797954 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				56FAC3B62AF16CEF00F22F66 /* Method.swift */,
 				56FAC3B82AF175C800F22F66 /* AppError.swift */,
 				56FAC3BA2AF17A7E00F22F66 /* APIResponse.swift */,
+				56350C1F2D2F35D700D64672 /* data.json */,
 			);
 			path = Newtworking;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				56EA1D232AEAE9560031F0A8 /* CategoryCollectionViewCell.xib in Resources */,
 				56B408882AF065790069FF60 /* DishListTableViewCell.xib in Resources */,
 				56A6F63E2AE6C53000797954 /* LaunchScreen.storyboard in Resources */,
+				56350C212D2F364F00D64672 /* data.json in Resources */,
 				56B408742AEC3C490069FF60 /* DishPortraitCollectionViewCell.xib in Resources */,
 				56A6F63B2AE6C53000797954 /* Assets.xcassets in Resources */,
 				56B4087B2AEF3CA90069FF60 /* DishLandscapeCollectionViewCell.xib in Resources */,
@@ -611,8 +615,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -642,8 +646,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

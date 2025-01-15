@@ -13,21 +13,65 @@ struct NetworkService {
     
     private init() {}
     
-    func fetchAllCategories(completion: @escaping(Result<AllDishes, Error>) -> Void) {
-        request(route: .fetchAllCategories, method: .get, completion: completion)
+    func fetchAllCategories(completion: @escaping (Result<AllDishes, Error>) -> Void) {
+        // Locate the JSON file in the app bundle
+        guard let path = Bundle.main.path(forResource: "data", ofType: "json") else {
+            completion(.failure(AppError.fileNotFound))
+            return
+        }
+        
+        do {
+            // Load the file content into a Data object
+            let jsonData = try Data(contentsOf: URL(fileURLWithPath: path))
+            
+            // Decode the JSON data into the AllDishes model
+            let decoder = JSONDecoder()
+            let allDishes = try decoder.decode(AllDishes.self, from: jsonData)
+            
+            // Return the decoded data via the completion handler
+            completion(.success(allDishes))
+        } catch {
+            // Handle and return any decoding or file reading errors
+            completion(.failure(AppError.errorDecoding))
+        }
     }
+
+
     
     func addFavorite(dishId: String, completion: @escaping(Result<Favorite, Error>) -> Void) {
         request(route: .addFavorite(dishId), method: .post, completion: completion)
     }
     
-    func fetchCategoryDishes(categoryId: String, completion: @escaping(Result<[Dish], Error>) -> Void) {
-        request(route: .fetchCategoryDishes(categoryId), method: .get, completion: completion)
+    func fetchCategoryDishes(categoryId: String, completion: @escaping (Result<[Dish], Error>) -> Void) {
+        // Locate the local JSON file in the bundle
+        guard let path = Bundle.main.path(forResource: "data", ofType: "json") else {
+            completion(.failure(NSError(domain: "FileNotFound", code: -1, userInfo: nil)))
+            return
+        }
+
+        do {
+            // Read the file content
+            let data = try Data(contentsOf: URL(fileURLWithPath: path))
+            // Decode the JSON data into the `AllDishes` struct
+            let allDishes = try JSONDecoder().decode(AllDishes.self, from: data)
+            
+            // Assuming category dishes are stored in `populars` or `specials`
+            let filteredDishes = allDishes.populars?.filter { $0.id == categoryId } ?? []
+            completion(.success(filteredDishes))
+        } catch {
+            completion(.failure(error))
+        }
     }
+
     
-    func fetchFavorites(compltion: @escaping(Result<[Favorite], Error>) -> Void) {
-        request(route: .fetchFavorites, method: .get, completion: compltion)
+    func fetchFavorites(completion: @escaping (Result<[Favorite], Error>) -> Void) {
+        // Example: Returning hardcoded favorites
+        let sampleFavorites = [
+            Favorite(id: "1", dish: Dish(id: "1", name: "Pancakes", description: "Delicious breakfast", image: "https://picsum.photos/200/200", calories: 350))
+        ]
+        completion(.success(sampleFavorites))
     }
+
     
     private func request<T: Decodable>(route: Route,
                                      method: Method,

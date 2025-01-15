@@ -16,34 +16,28 @@ class HomeViewController: UIViewController {
     
     
     
-    var categories: [DishCategory] = [
-//        .init(id: "id1", name: "African Dish", image: "https://picsum.photos/100/200"),
-//        .init(id: "id1", name: "African Dish 2", image: "https://picsum.photos/100/200"),
-//        .init(id: "id1", name: "African Dish 3", image: "https://picsum.photos/100/200"),
-//        .init(id: "id1", name: "African Dish 4", image: "https://picsum.photos/100/200"),
-//        .init(id: "id1", name: "African Dish 5", image: "https://picsum.photos/100/200")
-    ]
+    var categories: [DishCategory] = []
     
-    var populars: [Dish] = [
-//        .init(id: "id1", name: "Garri", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/200", calories: 46),
-//        .init(id: "id1", name: "Iommie", description: "This is the best I have ever tasted,This is the best I have ever tasted,This is the best I have ever tasted,This is the best I have ever tasted,This is the best I have ever tasted,This is the best I have ever tasted,This is the best I have ever tasted,This is the best I have ever tasted,This is the best I have ever tasted,This is the best I have ever tasted,This is the best I have ever tasted,This is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tasted", image: "https://picsum.photos/100/200", calories: 346),
-//        .init(id: "id1", name: "Hawaii Pizza", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/200", calories: 1204)
-    ]
+    var populars: [Dish] = []
     
-    var specials: [Dish]  = [
-//        .init(id: "id1", name: "Goalie", description: "This is my  favorite dish", image: "https://picsum.photos/100/200", calories: 346),
-//        .init(id: "id1", name: "Hawaii Moii", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/200", calories: 1204)
-    ]
+    var specials: [Dish]  = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        specialsCollectionView.delegate = self
-        specialsCollectionView.dataSource = self
-         
+        
+           categoryCollectionView.delegate = self
+           categoryCollectionView.dataSource = self
+           popularCollectionView.delegate = self
+           popularCollectionView.dataSource = self
+           specialsCollectionView.delegate = self
+           specialsCollectionView.dataSource = self
+        
         registeCells()
         
         ProgressHUD.animate(symbol: "slowmo")
+        
+        fetchCategories()
         
         NetworkService.shared.fetchAllCategories { [weak self] (result) in
             switch result {
@@ -63,19 +57,41 @@ class HomeViewController: UIViewController {
         }
         
     }
+    func fetchCategories() {
+        NetworkService.shared.fetchAllCategories { [weak self] result in
+            switch result {
+            case .success(let allDishes):
+                self?.categories = allDishes.categories ?? []
+                self?.populars = allDishes.populars ?? []
+                self?.specials = allDishes.specials ?? []
+                
+                // Reload the appropriate collection views
+                self?.categoryCollectionView.reloadData()
+                self?.popularCollectionView.reloadData()
+                self?.specialsCollectionView.reloadData()
+            case .failure(let error):
+                print("Failed to fetch categories: \(error.localizedDescription)")
+            }
+        }
+    }
+
     
     
     private func registeCells() {
-        categoryCollectionView.register(UINib(nibName: 
-                                                CategoryCollectionViewCell.identifier, bundle: nil), 
-                                                 forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
-        popularCollectionView.register(UINib(nibName:
-                                                DishPortraitCollectionViewCell.identifier, bundle: nil), 
-                                                forCellWithReuseIdentifier: DishPortraitCollectionViewCell.identifier)
-        specialsCollectionView.register(UINib(nibName:
-                                                DishLandscapeCollectionViewCell.identifier, bundle: nil),
-                                                forCellWithReuseIdentifier: DishLandscapeCollectionViewCell.identifier)
+        categoryCollectionView.register(
+            UINib(nibName: CategoryCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier
+        )
+        popularCollectionView.register(
+            UINib(nibName: DishPortraitCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: DishPortraitCollectionViewCell.identifier
+        )
+        specialsCollectionView.register(
+            UINib(nibName: DishLandscapeCollectionViewCell.identifier, bundle: nil),
+            forCellWithReuseIdentifier: DishLandscapeCollectionViewCell.identifier
+        )
     }
+
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {

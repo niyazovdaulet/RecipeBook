@@ -13,7 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Customize UINavigationBar appearance
+        let appearance = UINavigationBar.appearance()
+        appearance.tintColor = .black // Set the tint color to dark black
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black] // Optional: For title color
+        appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black] // Optional: For large titles
         return true
     }
 

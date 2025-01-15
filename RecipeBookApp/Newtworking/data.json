@@ -1,0 +1,337 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Breakfast",
+      "image": "breakfast.png",
+      "dishes": [
+        {
+          "id": "1",
+          "name": "Fluffy Pancakes",
+          "description": "Ingredients (Makes about 8 pancakes): 1 ½ cups (190g) all-purpose flour, 3 ½ teaspoons baking powder, 1 teaspoon salt, 1 tablespoon sugar, 1 ¼ cups (300ml) milk (whole milk for extra richness), 1 egg, 3 tablespoons unsalted butter, melted (plus extra for greasing the pan), 1 teaspoon vanilla extract (optional, for a subtle sweet flavor).               Instructions: Mix dry ingredients in a bowl. Whisk milk, egg, butter, and vanilla in a separate bowl. Combine wet and dry ingredients; do not overmix. Cook ¼ cup batter portions in a greased skillet over medium heat. Flip when bubbles appear and cook until golden. Serve with syrup, butter, or fruit.",
+          "image": "https://i.pinimg.com/736x/72/da/15/72da151536b95f21d49c2ac5337d3848.jpg",
+          "calories": 200
+        },
+        {
+          "id": "2",
+          "name": "Classic Scrambled Eggs",
+          "description": "Ingredients (Serves 2): 4 eggs, 2 tbsp milk or cream, 1 tbsp butter, Salt and pepper to taste.                           Instructions: Whisk eggs with milk, salt, and pepper until smooth. Melt butter in a non-stick pan over low heat. Pour in the eggs and stir gently until softly set.Serve with toast or avocado slices.",
+          "image": "https://i.pinimg.com/736x/e9/50/d4/e950d40ff24b9d0e96d7f1c520a52ed7.jpg",
+          "calories": 200
+        },
+        {
+        "id": "3",
+        "name": "Overnight Oats",
+        "description": "Ingredients (Serves 1): ½ cup rolled oats, ½ cup milk (or any non-dairy alternative), 2 tbsp yogurt, 1 tbsp honey or maple syrup, Toppings: fruits, nuts, seeds.                              Instructions: Combine oats, milk, yogurt, and sweetener in a jar. Stir, seal, and refrigerate overnight. Add toppings in the morning and enjoy!",
+        "image": "https://i.pinimg.com/736x/22/cb/3a/22cb3a72b6b9d3bc3ec97795e8bcc519.jpg",
+        "calories": 200
+        },
+        {
+        "id": "4",
+        "name": "Banana Pancakes",
+        "description": "Ingredients (Serves 2): 1 ripe banana, 2 eggs, ½ tsp baking powder, Optional: 1 tbsp oats.                        Instructions: Mash the banana and whisk in eggs and baking powder. Cook spoonfuls of the batter on a non-stick skillet over medium heat. Serve with syrup or nut butter.",
+        "image": "https://i.pinimg.com/736x/a0/d8/e1/a0d8e1f918d20f8722b599f727e44d7d.jpg",
+        "calories": 100
+        },
+        {
+        "id": "5",
+        "name": "Smoothie Bowl",
+        "description": "Ingredients (Serves 1): 1 frozen banana, ½ cup frozen berries, ½ cup yogurt or milk, Toppings: granola, fresh fruit, coconut flakes.                                                    Instructions: Blend banana, berries, and yogurt until thick and smooth. Pour into a bowl and add toppings.",
+        "image": "https://i.pinimg.com/736x/cc/f7/b2/ccf7b2eec728083c20de91e288fe7ba4.jpg",
+        "calories": 300
+        },
+        {
+        "id": "6",
+        "name": "Breakfast Burrito",
+        "description": "Ingredients (Serves 1): 1 tortilla, 2 scrambled eggs, ¼ cup shredded cheese, ¼ cup diced vegetables (peppers, onions, tomatoes). Optional: salsa or avocado.                                          Instructions: Cook scrambled eggs with veggies. Place on the tortilla, top with cheese, and roll into a burrito. Serve with salsa or avocado.",
+        "image": "https://i.pinimg.com/736x/6e/01/44/6e0144d32d9ffe9cc4594f8b15b44f02.jpg",
+        "calories": 400
+        },
+        {
+        "id": "7",
+        "name": "French Toast",
+        "description": "Ingredients (Serves 2): 4 slices of bread, 2 eggs, ½ cup milk, 1 tsp cinnamon, 1 tsp vanilla extract, Butter for frying.                                    Instructions: Whisk eggs, milk, cinnamon, and vanilla in a bowl. Dip bread slices into the mixture and coat well. Fry in butter over medium heat until golden. Serve with syrup and fresh fruit.",
+        "image": "https://i.pinimg.com/736x/f2/a9/7d/f2a97d450217add2f30fd938384b24d8.jpg",
+        "calories": 250
+        },
+        {
+        "id": "8",
+        "name": "Breakfast Quesadilla",
+        "description": "Ingredients (Serves 1): 1 tortilla, 2 scrambled eggs, ¼ cup shredded cheese. Optional: cooked bacon or veggies.                       Instructions: Spread scrambled eggs and cheese on one half of the tortilla. Fold and cook in a skillet until the cheese melts. Slice and serve.",
+        "image": "https://i.pinimg.com/736x/3d/df/22/3ddf229955a0cd5882375be4561e0a26.jpg",
+        "calories": 350
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Lunch",
+      "image": "lunch.png",
+      "dishes": [
+        {
+          "id": "9",
+          "name": "Grilled Chicken Wrap",
+          "description": "Ingredients (Serves 1): 1 large tortilla, ½ cup cooked grilled chicken, sliced, ¼ cup shredded lettuce, 2 tbsp diced tomatoes, 1 tbsp ranch or Caesar dressing. Optional: shredded cheese.          Instructions: Spread dressing over the tortilla. Add chicken, lettuce, tomatoes, and cheese (if using). Roll tightly into a wrap and slice in half.",
+          "image": "https://i.pinimg.com/736x/57/ed/d5/57edd5ea921612da7d1ef63b34fdc4a3.jpg",
+          "calories": 400
+        },
+        {
+          "id": "10",
+          "name": "Spaghetti Carbonara",
+          "description": "Ingredients (Serves 2): 200g spaghetti, 2 eggs, ¼ cup grated Parmesan, 2 strips of bacon, diced, Salt and pepper to taste.                 Instructions: Cook spaghetti according to package instructions. Reserve ½ cup pasta water. Fry bacon until crispy. Whisk eggs with Parmesan, salt, and pepper. Toss hot spaghetti with the egg mixture, bacon, and reserved pasta water. Serve immediately.",
+          "image": "https://i.pinimg.com/736x/db/8e/f4/db8ef46d2e2bca1a2c2fcd0624cb33b8.jpg",
+          "calories": 450
+        },
+        {
+          "id": "11",
+          "name": "Chicken Stir-Fry",
+          "description": "Ingredients (Serves 2): 1 chicken breast, sliced, 2 cups mixed vegetables (broccoli, bell peppers, carrots), 2 tbsp soy sauce, 1 tsp sesame oil, 1 tsp cornstarch mixed with 2 tbsp water.                       Instructions: Sauté chicken in sesame oil until cooked. Add vegetables and stir-fry for 5 minutes. Mix in soy sauce and cornstarch slurry, cooking until thickened. Serve with rice.",
+          "image": "https://i.pinimg.com/736x/c6/75/21/c67521b1120634ba22120474cce710d2.jpg",
+          "calories": 350
+        },
+        {
+          "id": "12",
+          "name": "Beef Tacos",
+          "description": "Ingredients (Serves 4 tacos): 200g ground beef, 1 tsp taco seasoning, 4 small tortillas, ½ cup shredded lettuce, ¼ cup diced tomatoes, ¼ cup shredded cheese.                     Instructions: Cook ground beef with taco seasoning. Fill tortillas with beef, lettuce, tomatoes, and cheese.",
+          "image": "https://i.pinimg.com/736x/af/5a/05/af5a0548d005b73283f0a5e0ea97da4d.jpg",
+          "calories": 300
+        },
+        {
+          "id": "13",
+          "name": "Vegetable Fried Rice",
+          "description": "Ingredients (Serves 2): 2 cups cooked rice, 1 cup mixed vegetables (peas, carrots, corn), 2 eggs, beaten, 2 tbsp soy sauce, 1 tbsp vegetable oil.                 Instructions: Heat oil in a pan. Add vegetables and sauté. Push veggies to the side, scramble eggs, then mix with veggies. Add rice and soy sauce, stirring until combined.",
+          "image": "https://i.pinimg.com/736x/c4/00/db/c400dbbb099bf14fe7f3d032dca450d3.jpg",
+          "calories": 400
+        },
+        {
+          "id": "14",
+          "name": "Grilled Cheese and Tomato Soup",
+          "description": "Ingredients (Serves 1): 2 slices of bread, 2 slices of cheddar cheese, 1 tbsp butter, 1 cup tomato soup (store-bought or homemade).                 Instructions: Butter one side of each bread slice. Place cheese between unbuttered sides. Grill until golden and cheese is melted. Serve with warm tomato soup.",
+          "image": "https://i.pinimg.com/736x/3d/36/c6/3d36c68617ceef0fa835b04b476bd75f.jpg",
+          "calories": 450
+        },
+        {
+          "id": "15",
+          "name": "Chicken Alfredo Pasta",
+          "description": "Ingredients (Serves 2): 200g fettuccine, 1 chicken breast, sliced, 1 cup heavy cream, ½ cup grated Parmesan, 1 tbsp butter.                Instructions: Cook pasta and set aside. Sauté chicken in butter. Add cream and Parmesan. Toss pasta in the sauce and serve warm.",
+          "image": "https://i.pinimg.com/736x/00/a0/b8/00a0b84959d85a440bbac702da8f8ac7.jpg",
+          "calories": 500
+        },
+        {
+          "id": "17",
+          "name": "Teriyaki Salmon Bowl",
+          "description": "Ingredients (Serves 2): 2 salmon fillets, ¼ cup teriyaki sauce, 2 cups cooked rice, 1 cup steamed broccoli.           Instructions: Brush salmon with teriyaki sauce and bake at 375°F (190°C) for 15 minutes. Serve over rice with steamed broccoli.",
+          "image": "https://i.pinimg.com/736x/a3/29/4e/a3294e42cfa6b9f9d5b7f2f1187b4490.jpg",
+          "calories": 450
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Snacks",
+      "image": "snacks.png",
+      "dishes": [
+        {
+          "id": "18",
+          "name": "Greek Yogurt with Honey and Berries",
+          "description": "Ingredients (Serves 1): 1 cup plain Greek yogurt, 1 teaspoon honey, ½ cup mixed berries.                      Instructions: Place yogurt in a bowl. Drizzle with honey and top with berries. Serve chilled.",
+          "image": "https://i.pinimg.com/736x/b3/2c/38/b32c387a414dbc735a3da14349bfb5e5.jpg",
+          "calories": 180
+        },
+        {
+          "id": "19",
+          "name": "Air-Popped Popcorn",
+          "description": "Ingredients (Serves 1): 3 tablespoons popcorn kernels. Optional: a pinch of salt or nutritional yeast.                       Instructions: Use an air popper to pop the kernels. Season as desired. Enjoy warm.",
+          "image": "https://i.pinimg.com/736x/48/66/42/4866425426dc3198afd731b530516c00.jpg",
+          "calories": 100
+        },
+        {
+          "id": "20",
+          "name": "Cottage Cheese with Pineapple Chunks",
+          "description": "Ingredients (Serves 1): ½ cup low-fat cottage cheese, ½ cup pineapple chunks (fresh or canned in juice).                    Instructions: Combine cottage cheese and pineapple in a bowl. Mix gently and serve.",
+          "image": "https://i.pinimg.com/736x/fa/d7/bb/fad7bbeadf572c26240e9a0fc83add16.jpg",
+          "calories": 150
+        },
+        {
+          "id": "21",
+          "name": "Whole Wheat Crackers with Avocado",
+          "description": "Ingredients (Serves 1): 5 whole wheat crackers, ½ ripe avocado. Salt and pepper to taste.                 Instructions: Mash avocado and season with salt and pepper. Spread avocado on crackers. Serve immediately.",
+          "image": "https://i.pinimg.com/736x/b9/b7/d4/b9b7d4fb41de9c4c9400806e1b832c04.jpg",
+          "calories": 200
+        },
+        {
+          "id": "22",
+          "name": "Banana Oat Energy Bites",
+          "description": "Ingredients (Makes 12 bites): 1 ripe banana, 1 cup rolled oats, 2 tablespoons peanut butter, 1 tablespoon honey, 1 teaspoon vanilla extract.                   Instructions: Mash banana in a bowl. Add remaining ingredients and mix well. Roll into 12 balls and refrigerate for 30 minutes before serving.",
+          "image": "https://i.pinimg.com/736x/f9/b6/8a/f9b68aa541f84491a333983534bf03cf.jpg",
+          "calories": 100
+        },
+        {
+          "id": "23",
+          "name": "Dark Chocolate-Dipped Strawberries",
+          "description": "Ingredients (Makes 10 strawberries): 10 fresh strawberries, 50g dark chocolate (70% cocoa or higher).                     Instructions: Melt dark chocolate in a microwave-safe bowl. Dip each strawberry into the chocolate, coating halfway. Place on parchment paper and refrigerate until set.",
+          "image": "https://i.pinimg.com/736x/ee/36/21/ee3621272f70d9ef416edc3249b1136d.jpg",
+          "calories": 50
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Dinner",
+      "image": "dinner.png",
+      "dishes": [
+        {
+          "id": "24",
+          "name": "Instant Pot Mexican Chicken and Rice Bowls",
+          "description": "Ingredients (Serves 4): 2 chicken breasts, diced, 1 cup long-grain rice, 1 can black beans, drained and rinsed, 1 cup corn kernels, 1 cup salsa, 1 cup chicken broth, 1 tsp cumin, 1 tsp chili powder, Salt and pepper to taste, Fresh cilantro and lime wedges for garnish.               Instructions: Combine all ingredients in the Instant Pot. Seal and cook on high pressure for 10 minutes. Quick release pressure; fluff rice with a fork. Garnish with cilantro and lime wedges. Serve warm.",
+          "image": "https://i.pinimg.com/736x/d4/7a/55/d47a55e994ca0037920d1a9b4ce80091.jpg",
+          "calories": 450
+        },
+        {
+          "id": "25",
+          "name": "Butternut Squash Chili",
+          "description": "Ingredients (Serves 4): 1 medium butternut squash, peeled and diced, 1 can black beans, drained and rinsed, 1 can diced tomatoes, 1 onion, chopped, 2 cloves garlic, minced, 1 tbsp chili powder, 1 tsp cumin, Salt and pepper to taste.             Instructions: Sauté onion and garlic until translucent. Add diced butternut squash and spices; cook for 5 minutes. Stir in black beans and diced tomatoes. Simmer for 20-25 minutes until squash is tender. Serve hot.",
+          "image": "https://i.pinimg.com/736x/d3/69/61/d3696134af0d0d3954e6061ce2f67119.jpg",
+          "calories": 300
+        },
+        {
+          "id": "26",
+          "name": "Sheet Pan Harissa Chicken Dinner",
+          "description": "Ingredients (Serves 4): 4 chicken thighs, 2 tbsp harissa paste, 1 lemon, sliced, 2 cups baby potatoes, halved, 1 red onion, cut into wedges, 2 tbsp olive oil, Salt and pepper to taste.                     Instructions: Preheat oven to 400°F (200°C). Toss chicken, potatoes, and onion with harissa, olive oil, salt, and pepper. Arrange on a sheet pan; top with lemon slices. Roast for 35-40 minutes until chicken is cooked through. Serve warm.",
+          "image": "https://i.pinimg.com/736x/26/81/ef/2681ef629f7847ce54bdd192b85fdb7c.jpg",
+          "calories": 400
+        },
+        {
+          "id": "27",
+          "name": "One-Pan Mediterranean Cod",
+          "description": "Ingredients (Serves 4): 4 cod fillets, 1 cup cherry tomatoes, halved, 1/2 cup Kalamata olives, pitted, 1 red onion, sliced, 2 cloves garlic, minced, 2 tbsp olive oil, Juice of 1 lemon, Fresh parsley for garnish, Salt and pepper to taste.                     Instructions: Preheat oven to 375°F (190°C). Arrange cod fillets on a baking sheet. Scatter tomatoes, olives, onion, and garlic around the fish. Drizzle with olive oil and lemon juice; season with salt and pepper. Bake for 20-25 minutes until fish is opaque. Garnish with parsley and serve.",
+          "image": "https://i.pinimg.com/736x/bf/dd/bd/bfddbd54b187792f3eb73117ba01a260.jpg",
+          "calories": 350
+        },
+        {
+          "id": "28",
+          "name": "Sausage and Vegetable Sheet Pan Dinner",
+          "description": "Ingredients (Serves 4): 4 Italian sausages, 2 bell peppers, sliced, 1 zucchini, sliced, 1 red onion, cut into wedges, 2 tbsp olive oil, 1 tsp Italian seasoning, Salt and pepper to taste.                 Instructions: Preheat oven to 400°F (200°C). Toss vegetables with olive oil, Italian seasoning, salt, and pepper. Arrange sausages and vegetables on a sheet pan. Roast for 25-30 minutes until sausages are cooked through. Serve hot.",
+          "image": "https://i.pinimg.com/736x/a2/ec/a9/a2eca93d82f1a52aecff7b46dc251051.jpg",
+          "calories": 400
+        },
+        {
+          "id": "29",
+          "name": "Turkey Spaghetti Zoodles",
+          "description": "Ingredients (Serves 4): 1 lb ground turkey, 4 zucchinis, spiralized into noodles, 1 jar marinara sauce, 1 onion, chopped, 2 cloves garlic, minced, 1 tbsp olive oil, Salt and pepper to taste, Fresh basil for garnish.                  Instructions: Sauté onion and garlic in olive oil until translucent. Add ground turkey; cook until browned. Stir in marinara sauce; simmer for 10 minutes. Add zucchini noodles; cook for 2-3 minutes until tender. Garnish with basil and serve.",
+          "image": "https://i.pinimg.com/736x/94/29/0e/94290e3999237a3a7b32d3819d77e827.jpg",
+          "calories": 350
+        },
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Salads",
+      "image": "salads.png",
+      "dishes": [
+        {
+          "id": "30",
+          "name": "Mediterranean Chickpea Salad",
+          "description": "Ingredients (Serves 4): 2 cups cooked chickpeas, 1 cup cherry tomatoes, halved, 1 cucumber, diced, 1/2 red onion, finely chopped, 1/4 cup Kalamata olives, sliced, 1/4 cup feta cheese, crumbled, 2 tbsp olive oil, Juice of 1 lemon, Salt and pepper to taste, Fresh parsley for garnish.                        Instructions: In a large bowl, combine chickpeas, tomatoes, cucumber, red onion, olives, and feta. In a small bowl, whisk together olive oil, lemon juice, salt, and pepper. Pour dressing over the salad and toss to combine. Garnish with fresh parsley and serve chilled.",
+          "image": "https://i.pinimg.com/736x/b8/54/35/b85435b494e87ffab89468e3b03e4e60.jpg",
+          "calories":350
+        },
+        {
+          "id": "31",
+          "name": "Grilled Chicken Caesar Salad",
+          "description": "Ingredients (Serves 4): 2 grilled chicken breasts, sliced, 6 cups Romaine lettuce, chopped, 1/4 cup grated Parmesan cheese, 1 cup croutons, 1/3 cup Caesar dressing, Lemon wedges for serving.                 Instructions: In a large bowl, combine Romaine lettuce, Parmesan cheese, and croutons. Add sliced grilled chicken on top. Drizzle with Caesar dressing and toss gently to combine. Serve with lemon wedges on the side.",
+          "image": "https://i.pinimg.com/736x/3a/c6/ea/3ac6ea0caab2ea6de5a185c3d4db3629.jpg",
+          "calories": 400
+        },
+        {
+          "id": "32",
+          "name": "Quinoa and Black Bean Salad",
+          "description": "Ingredients (Serves 4): 1 cup quinoa, cooked and cooled, 1 can black beans, drained and rinsed, 1 red bell pepper, diced, 1 avocado, diced, 1/4 cup red onion, finely chopped, 1/4 cup cilantro, chopped, 2 tbsp olive oil, Juice of 2 limes, 1 tsp cumin, Salt and pepper to taste.                     Instructions: In a large bowl, combine quinoa, black beans, bell pepper, avocado, red onion, and cilantro. In a small bowl, whisk together olive oil, lime juice, cumin, salt, and pepper. Pour dressing over the salad and toss to combine. Serve chilled or at room temperature.",
+          "image": "https://i.pinimg.com/736x/cd/f5/2c/cdf52c892285da502777d7003d097c1e.jpg",
+          "calories": 330
+        },
+        {
+          "id": "33",
+          "name": "Caprese Salad",
+          "description": "Ingredients (Serves 4): 4 ripe tomatoes, sliced, 8 oz fresh mozzarella, sliced, Fresh basil leaves, 2 tbsp balsamic glaze, 2 tbsp olive oil, Salt and freshly ground black pepper to taste.                    Instructions: Arrange tomato and mozzarella slices alternately on a serving platter. Tuck fresh basil leaves between the slices. Drizzle with olive oil and balsamic glaze. Season with salt and freshly ground black pepper. Serve immediately.",
+          "image": "https://i.pinimg.com/736x/c8/9a/e2/c89ae2ef3407ef707b138690423d6506.jpg",
+          "calories": 250
+        },
+        {
+          "id": "34",
+          "name": "Greek Salad",
+          "description": "Ingredients (Serves 4): 4 cups chopped Romaine lettuce, 1 cucumber, diced, 1 cup cherry tomatoes, halved, 1/2 red onion, thinly sliced, 1/4 cup Kalamata olives, 1/4 cup feta cheese, crumbled, 2 tbsp olive oil, Juice of 1 lemon, 1 tsp dried oregano, Salt and pepper to taste.                 Instructions: In a large bowl, combine Romaine lettuce, cucumber, tomatoes, red onion, olives, and feta",
+          "image": "https://i.pinimg.com/736x/46/72/81/467281f2a488a073fbd73c322b0ab354.jpg",
+          "calories": 300
+        }
+      ]
+    }
+  ],
+  "populars": [
+      {
+          "id": "36",
+          "name": "Fluffy Pancakes",
+          "description": "Ingredients (Makes about 8 pancakes): 1 ½ cups (190g) all-purpose flour, 3 ½ teaspoons baking powder, 1 teaspoon salt, 1 tablespoon sugar, 1 ¼ cups (300ml) milk (whole milk for extra richness), 1 egg, 3 tablespoons unsalted butter, melted (plus extra for greasing the pan), 1 teaspoon vanilla extract (optional, for a subtle sweet flavor).               Instructions: Mix dry ingredients in a bowl. Whisk milk, egg, butter, and vanilla in a separate bowl. Combine wet and dry ingredients; do not overmix. Cook ¼ cup batter portions in a greased skillet over medium heat. Flip when bubbles appear and cook until golden. Serve with syrup, butter, or fruit.",
+          "image": "https://i.pinimg.com/736x/72/da/15/72da151536b95f21d49c2ac5337d3848.jpg",
+          "calories": 350
+      },
+      {
+          "id": "37",
+          "name": "Spaghetti Carbonara",
+          "description": "Ingredients (Serves 2): 200g spaghetti, 2 eggs, ¼ cup grated Parmesan, 2 strips of bacon, diced, Salt and pepper to taste.                 Instructions: Cook spaghetti according to package instructions. Reserve ½ cup pasta water. Fry bacon until crispy. Whisk eggs with Parmesan, salt, and pepper. Toss hot spaghetti with the egg mixture, bacon, and reserved pasta water. Serve immediately.",
+          "image": "https://i.pinimg.com/736x/db/8e/f4/db8ef46d2e2bca1a2c2fcd0624cb33b8.jpg",
+          "calories": 450
+      },
+      {
+          "id": "38",
+          "name": "Dark Chocolate-Dipped Strawberries",
+          "description": "Ingredients (Makes 10 strawberries): 10 fresh strawberries, 50g dark chocolate (70% cocoa or higher).                     Instructions: Melt dark chocolate in a microwave-safe bowl. Dip each strawberry into the chocolate, coating halfway. Place on parchment paper and refrigerate until set.",
+          "image": "https://i.pinimg.com/736x/ee/36/21/ee3621272f70d9ef416edc3249b1136d.jpg",
+          "calories": 50
+      },
+      {
+        "id": "39",
+        "name": "Vegetable Fried Rice",
+        "description": "Ingredients (Serves 2): 2 cups cooked rice, 1 cup mixed vegetables (peas, carrots, corn), 2 eggs, beaten, 2 tbsp soy sauce, 1 tbsp vegetable oil.                 Instructions: Heat oil in a pan. Add vegetables and sauté. Push veggies to the side, scramble eggs, then mix with veggies. Add rice and soy sauce, stirring until combined.",
+        "image": "https://i.pinimg.com/736x/c4/00/db/c400dbbb099bf14fe7f3d032dca450d3.jpg",
+        "calories": 400
+      },
+      {
+      "id": "40",
+      "name": "Banana Pancakes",
+      "description": "Ingredients (Serves 2): 1 ripe banana, 2 eggs, ½ tsp baking powder, Optional: 1 tbsp oats.                        Instructions: Mash the banana and whisk in eggs and baking powder. Cook spoonfuls of the batter on a non-stick skillet over medium heat. Serve with syrup or nut butter.",
+      "image": "https://i.pinimg.com/736x/a0/d8/e1/a0d8e1f918d20f8722b599f727e44d7d.jpg",
+      "calories": 100
+      }
+  ],
+  "specials": [
+      {
+          "id": "41",
+          "name": "Instant Pot Mexican Chicken and Rice Bowls",
+          "description": "Ingredients (Serves 4): 2 chicken breasts, diced, 1 cup long-grain rice, 1 can black beans, drained and rinsed, 1 cup corn kernels, 1 cup salsa, 1 cup chicken broth, 1 tsp cumin, 1 tsp chili powder, Salt and pepper to taste, Fresh cilantro and lime wedges for garnish.               Instructions: Combine all ingredients in the Instant Pot. Seal and cook on high pressure for 10 minutes. Quick release pressure; fluff rice with a fork. Garnish with cilantro and lime wedges. Serve warm.",
+          "image": "https://i.pinimg.com/736x/d4/7a/55/d47a55e994ca0037920d1a9b4ce80091.jpg",
+          "calories": 450
+      },
+      {
+            "id": "42",
+            "name": "Greek Yogurt with Honey and Berries",
+            "description": "Ingredients (Serves 1): 1 cup plain Greek yogurt, 1 teaspoon honey, ½ cup mixed berries.                      Instructions: Place yogurt in a bowl. Drizzle with honey and top with berries. Serve chilled.",
+            "image": "https://i.pinimg.com/736x/b3/2c/38/b32c387a414dbc735a3da14349bfb5e5.jpg",
+            "calories": 180
+      },
+      {
+          "id": "43",
+          "name": "Breakfast Quesadilla",
+          "description": "Ingredients (Serves 1): 1 tortilla, 2 scrambled eggs, ¼ cup shredded cheese. Optional: cooked bacon or veggies.                       Instructions: Spread scrambled eggs and cheese on one half of the tortilla. Fold and cook in a skillet until the cheese melts. Slice and serve.",
+          "image": "https://i.pinimg.com/736x/3d/df/22/3ddf229955a0cd5882375be4561e0a26.jpg",
+          "calories": 350
+      },
+      {
+            "id": "44",
+            "name": "Classic Scrambled Eggs",
+            "description": "Ingredients (Serves 2): 4 eggs, 2 tbsp milk or cream, 1 tbsp butter, Salt and pepper to taste.                           Instructions: Whisk eggs with milk, salt, and pepper until smooth. Melt butter in a non-stick pan over low heat. Pour in the eggs and stir gently until softly set.Serve with toast or avocado slices.",
+            "image": "https://i.pinimg.com/736x/e9/50/d4/e950d40ff24b9d0e96d7f1c520a52ed7.jpg",
+            "calories": 200
+      }
+  ]
+}

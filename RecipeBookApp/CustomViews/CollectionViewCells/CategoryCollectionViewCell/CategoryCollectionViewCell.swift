@@ -1,22 +1,20 @@
-//
-//  CategoryCollectionViewCell.swift
-//  RecipeBookApp
-//
-//  Created by Daulet on 26/10/2023.
-//
-
 import UIKit
 import Kingfisher
 
 class CategoryCollectionViewCell: UICollectionViewCell {
-
-    static let identifier = String(describing: CategoryCollectionViewCell.self)
     
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var categoryTitleLbl: UILabel!
     
+    static let identifier = "CategoryCollectionViewCell"
+    
     func setup(category: DishCategory) {
+        print("Setting up category with name: \(category.name)")
+        
+        // Use nil-coalescing to provide a default value if category.image is nil
+        let imageName = category.image ?? "default_image"
+        categoryImageView.image = UIImage(named: imageName)
+        
         categoryTitleLbl.text = category.name
-        categoryImageView.kf.setImage(with: category.image?.asUrl)
     }
 }
