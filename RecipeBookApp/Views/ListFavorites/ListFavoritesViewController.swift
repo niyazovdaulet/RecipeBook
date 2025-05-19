@@ -9,8 +9,6 @@ import UIKit
 import ProgressHUD
 
 class ListFavoritesViewController: UIViewController {
-
-    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,25 +16,29 @@ class ListFavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
         title = "Favorites"
         registerCells()
-        
-        ProgressHUD.animate(symbol: "slowmo")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        NetworkService.shared.fetchFavorites { [weak self] (result) in
-            switch result {
-            case .success(let favorites):
-                ProgressHUD.dismiss()
-                
-                self?.favorites = favorites
-                self?.tableView.reloadData()
-            case .failure(let error):
-                ProgressHUD.error(error.localizedDescription)
-            }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadFavorites()
+    }
+    
+    private func loadFavorites() {
+        favorites = FavoritesManager.shared.getAllFavorites()
+        tableView.reloadData()
+        
+        if favorites.isEmpty {
+            // Show empty state message
+            let messageLabel = UILabel()
+            messageLabel.text = "No favorites yet. Add some dishes to your favorites!"
+            messageLabel.textAlignment = .center
+            messageLabel.numberOfLines = 0
+            messageLabel.textColor = .gray
+            tableView.backgroundView = messageLabel
+        } else {
+            tableView.backgroundView = nil
         }
     }
     
@@ -60,5 +62,19 @@ extension ListFavoritesViewController: UITableViewDelegate, UITableViewDataSourc
         let controller = DishDetailViewController.instiatiate()
         controller.dish = favorites[indexPath.row].dish
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let dishId = favorites[indexPath.row].dish?.id {
+                FavoritesManager.shared.removeFavorite(dishId: dishId)
+                favorites.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+                if favorites.isEmpty {
+                    loadFavorites() // This will show the empty state message
+                }
+            }
+        }
     }
 }

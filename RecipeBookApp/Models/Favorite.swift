@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Favorite: Decodable {
+struct Favorite: Codable {
     let id: String?
     let dish: Dish?
     

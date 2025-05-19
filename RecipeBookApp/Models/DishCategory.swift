@@ -1,6 +1,6 @@
 import Foundation
 
-struct DishCategory: Decodable {
+struct DishCategory: Codable {
     let id: String?
     let name: String?
     let image: String?
