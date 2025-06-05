@@ -413,7 +413,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="356.66666666666669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jz7-bB-P4P">
-                                                <rect key="frame" x="24" y="280" width="342" height="28.666666666666686"/>
+                                                <rect key="frame" x="24" y="280" width="205" height="28.666666666666686"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="205" id="syR-yw-HmS"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -442,18 +445,30 @@
                                                     <constraint firstAttribute="bottom" secondItem="giA-dz-km8" secondAttribute="bottom" id="wsC-SW-go5"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zx-ao-KeK">
+                                                <rect key="frame" x="255" y="280" width="111" height="28.666666666666686"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="111" id="VRd-bz-E2U"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="4zx-ao-KeK" firstAttribute="top" secondItem="VL3-Pg-wdR" secondAttribute="bottom" constant="20" id="0Oh-MQ-6lB"/>
                                             <constraint firstItem="TZ4-NS-7Ge" firstAttribute="top" secondItem="Jz7-bB-P4P" secondAttribute="bottom" constant="10" id="0bv-V0-XPg"/>
                                             <constraint firstItem="Jz7-bB-P4P" firstAttribute="top" secondItem="VL3-Pg-wdR" secondAttribute="bottom" constant="20" id="7Ir-UG-Eur"/>
                                             <constraint firstAttribute="trailing" secondItem="VL3-Pg-wdR" secondAttribute="trailing" constant="20" id="CAc-dU-tT8"/>
+                                            <constraint firstAttribute="trailing" secondItem="4zx-ao-KeK" secondAttribute="trailing" constant="24" id="EcE-WX-Tet"/>
                                             <constraint firstItem="VL3-Pg-wdR" firstAttribute="top" secondItem="kmL-t0-pfz" secondAttribute="top" constant="20" id="JlY-GD-hrl"/>
+                                            <constraint firstItem="TZ4-NS-7Ge" firstAttribute="top" secondItem="4zx-ao-KeK" secondAttribute="bottom" constant="10" id="OhC-M1-A5U"/>
                                             <constraint firstItem="VL3-Pg-wdR" firstAttribute="leading" secondItem="kmL-t0-pfz" secondAttribute="leading" constant="20" id="cDg-Vd-lC9"/>
                                             <constraint firstItem="Jz7-bB-P4P" firstAttribute="leading" secondItem="kmL-t0-pfz" secondAttribute="leading" constant="24" id="hNA-n1-DZ6"/>
+                                            <constraint firstItem="4zx-ao-KeK" firstAttribute="leading" secondItem="Jz7-bB-P4P" secondAttribute="trailing" constant="26" id="ib6-aC-4dE"/>
                                             <constraint firstAttribute="trailing" secondItem="TZ4-NS-7Ge" secondAttribute="trailing" constant="24" id="jP0-xf-E5G"/>
                                             <constraint firstItem="TZ4-NS-7Ge" firstAttribute="leading" secondItem="kmL-t0-pfz" secondAttribute="leading" constant="24" id="jzl-B4-sFJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="Jz7-bB-P4P" secondAttribute="trailing" constant="24" id="og2-dz-OhA"/>
                                             <constraint firstAttribute="bottom" secondItem="TZ4-NS-7Ge" secondAttribute="bottom" constant="20" id="uk9-Zm-OhW"/>
                                         </constraints>
                                     </view>
@@ -505,6 +520,7 @@
                         <outlet property="favoriteButton" destination="aPN-dt-MK2" id="jUi-mW-xym"/>
                         <outlet property="imagView" destination="giA-dz-km8" id="Gt8-Uv-ssr"/>
                         <outlet property="imageContainerView" destination="VL3-Pg-wdR" id="0Ef-ya-URp"/>
+                        <outlet property="originLbl" destination="4zx-ao-KeK" id="tvT-9K-YEc"/>
                         <outlet property="titleLbl" destination="Jz7-bB-P4P" id="Ois-KZ-T4L"/>
                     </connections>
                 </viewController>

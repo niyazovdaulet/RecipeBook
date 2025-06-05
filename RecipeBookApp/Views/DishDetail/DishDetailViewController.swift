@@ -16,6 +16,7 @@ class DishDetailViewController: UIViewController {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var originLbl: UILabel!
     
     var dish: Dish!
     
@@ -79,6 +80,7 @@ class DishDetailViewController: UIViewController {
     private func populateView() {
         imagView.kf.setImage(with: dish.image?.asUrl)
         titleLbl.text = dish.name
+        originLbl.text = dish.origin
 
         // Split description into ingredients and instructions
         let description = dish.description ?? ""
