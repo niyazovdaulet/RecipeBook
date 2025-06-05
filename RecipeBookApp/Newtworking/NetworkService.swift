@@ -13,141 +13,212 @@ struct NetworkService {
     
     private init() {}
     
-    func fetchAllCategories(completion: @escaping (Result<AllDishes, Error>) -> Void) {
-        // Locate the JSON file in the app bundle
-        guard let path = Bundle.main.path(forResource: "data", ofType: "json") else {
-            completion(.failure(AppError.fileNotFound))
-            return
+    func fetchAllCategories(completion: @escaping (Result<[DishCategory], Error>) -> Void) {
+        request(route: .fetchAllCategories, method: .get) { (result: Result<MealDBCategoryResponse, Error>) in
+            switch result {
+            case .success(let response):
+                // Convert MealDBCategory to DishCategory
+                let categories = response.categories.map { category in
+                    DishCategory(
+                        id: category.idCategory,
+                        name: category.strCategory,
+                        image: category.strCategoryThumb,
+                        dishes: nil // We'll fetch dishes when needed
+                    )
+                }
+                completion(.success(categories))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
-        
-        do {
-            // Load the file content into a Data object
-            let jsonData = try Data(contentsOf: URL(fileURLWithPath: path))
-            
-            // Decode the JSON data into the AllDishes model
-            let decoder = JSONDecoder()
-            let allDishes = try decoder.decode(AllDishes.self, from: jsonData)
-            
-            // Return the decoded data via the completion handler
-            completion(.success(allDishes))
-        } catch {
-            // Handle and return any decoding or file reading errors
-            completion(.failure(AppError.errorDecoding))
-        }
-    }
-
-
-    
-    func addFavorite(dishId: String, completion: @escaping(Result<Favorite, Error>) -> Void) {
-        request(route: .addFavorite(dishId), method: .post, completion: completion)
     }
     
-    func fetchCategoryDishes(categoryId: String, completion: @escaping (Result<[Dish], Error>) -> Void) {
-        // Locate the local JSON file in the bundle
-        guard let path = Bundle.main.path(forResource: "data", ofType: "json") else {
-            completion(.failure(NSError(domain: "FileNotFound", code: -1, userInfo: nil)))
-            return
-        }
-
-        do {
-            // Read the file content
-            let data = try Data(contentsOf: URL(fileURLWithPath: path))
-            // Decode the JSON data into the `AllDishes` struct
-            let allDishes = try JSONDecoder().decode(AllDishes.self, from: data)
-            
-            // Assuming category dishes are stored in `populars` or `specials`
-            let filteredDishes = allDishes.populars?.filter { $0.id == categoryId } ?? []
-            completion(.success(filteredDishes))
-        } catch {
-            completion(.failure(error))
+    func fetchCategoryDishes(category: String, completion: @escaping (Result<[Dish], Error>) -> Void) {
+        request(route: .fetchCategoryDishes(category), method: .get) { (result: Result<MealDBFilterMealsResponse, Error>) in
+            switch result {
+            case .success(let response):
+                guard let meals = response.meals else {
+                    completion(.success([]))
+                    return
+                }
+                // Fetch full details for each meal
+                let group = DispatchGroup()
+                var dishes: [Dish] = []
+                var errors: [Error] = []
+                for meal in meals {
+                    group.enter()
+                    self.fetchMealDetails(mealId: meal.idMeal) { result in
+                        switch result {
+                        case .success(let dish):
+                            dishes.append(dish)
+                        case .failure(let error):
+                            errors.append(error)
+                        }
+                        group.leave()
+                    }
+                }
+                group.notify(queue: .main) {
+                    if !errors.isEmpty && dishes.isEmpty {
+                        completion(.failure(errors[0]))
+                    } else {
+                        completion(.success(dishes))
+                    }
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
-
     
-    func fetchFavorites(completion: @escaping (Result<[Favorite], Error>) -> Void) {
-        // Example: Returning hardcoded favorites
-        let sampleFavorites = [
-            Favorite(id: "1", dish: Dish(id: "1", name: "Pancakes", description: "Delicious breakfast", image: "https://picsum.photos/200/200", calories: 350))
-        ]
-        completion(.success(sampleFavorites))
+    func fetchMealDetails(mealId: String, completion: @escaping (Result<Dish, Error>) -> Void) {
+        request(route: .fetchMealDetails(mealId), method: .get) { (result: Result<MealDBMealsResponse, Error>) in
+            switch result {
+            case .success(let response):
+                guard let meal = response.meals?.first else {
+                    completion(.failure(AppError.unkownError))
+                    return
+                }
+                completion(.success(meal.toDish()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
-
     
     private func request<T: Decodable>(route: Route,
                                      method: Method,
-                                     parameters : [String: Any]? = nil,
+                                     parameters: [String: Any]? = nil,
                                      completion: @escaping(Result<T, Error>) -> Void) {
-        guard let request = createRequest(route: route, method: method, parameters: parameters)  else {
-            completion(.failure(AppError.unkownError))
+        guard let url = URL(string: Route.baseUrl + route.description) else {
+            completion(.failure(AppError.invalidUrl))
             return
         }
         
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
-            var result: Result<Data, Error>?
-            if let data = data {
-                result = .success(data)
-                let responseString = String(data: data, encoding: .utf8) ?? "Could not stringify our data"
-//                print("The response is:\n\(responseString)")
-            } else if let error = error {
-                result = .failure(error)
-                print("The error is: \(error.localizedDescription)")
+            if let error = error {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                DispatchQueue.main.async {
+                    completion(.failure(AppError.unkownError))
+                }
+                return
+            }
+            
+            guard (200...299).contains(httpResponse.statusCode) else {
+                DispatchQueue.main.async {
+                    completion(.failure(AppError.serverError("Server returned status code \(httpResponse.statusCode)")))
+                }
+                return
+            }
+            
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(.failure(AppError.unkownError))
+                }
+                return
+            }
+            
+            // Print raw response for debugging
+            if let jsonString = String(data: data, encoding: .utf8) {
+//                print("Raw response for \(route.description): \(jsonString)")
+            }
+            
+            // Validate that the response is JSON
+            guard let _ = try? JSONSerialization.jsonObject(with: data) else {
+                DispatchQueue.main.async {
+                    completion(.failure(AppError.jsonParsingError("Response is not valid JSON")))
+                }
+                return
             }
             
             DispatchQueue.main.async {
-                self.handleResponse(result: result, completion: completion)
+                self.handleResponse(result: .success(data), completion: completion)
             }
         }.resume()
     }
     
-    private func handleResponse<T: Decodable>(result: Result<Data, Error>?,
-                                              completion: (Result<T, Error>) -> Void)  {
-        guard let result = result else {
-            completion(.failure(AppError.unkownError))
-            return
-        }
+    private func handleResponse<T: Decodable>(result: Result<Data, Error>, completion: @escaping(Result<T, Error>) -> Void) {
         switch result {
         case .success(let data):
-            let decoder = JSONDecoder()
-            guard let response = try? decoder.decode(APIResponse<T>.self, from: data) else {
-                completion(.failure(AppError.errorDecoding))
-                return
+            do {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(T.self, from: data)
+                completion(.success(response))
+            } catch let error as DecodingError {
+                switch error {
+                case .dataCorrupted(let context):
+                    print("Data corrupted: \(context.debugDescription)")
+                    completion(.failure(AppError.jsonParsingError("Data corrupted: \(context.debugDescription)")))
+                case .keyNotFound(let key, let context):
+                    print("Key not found: \(key.stringValue) - \(context.debugDescription)")
+                    completion(.failure(AppError.jsonParsingError("Missing required field: \(key.stringValue)")))
+                case .typeMismatch(let type, let context):
+                    print("Type mismatch: expected \(type) - \(context.debugDescription)")
+                    completion(.failure(AppError.jsonParsingError("Invalid data type for field: \(context.codingPath.last?.stringValue ?? "unknown")")))
+                case .valueNotFound(let type, let context):
+                    print("Value not found: expected \(type) - \(context.debugDescription)")
+                    completion(.failure(AppError.jsonParsingError("Missing value for field: \(context.codingPath.last?.stringValue ?? "unknown")")))
+                @unknown default:
+                    print("Unknown decoding error: \(error)")
+                    completion(.failure(AppError.jsonParsingError("Failed to decode response")))
+                }
+            } catch {
+                print("Unexpected error: \(error)")
+                completion(.failure(error))
             }
-            if let error = response.error {
-                completion(.failure(AppError.serverError(error)))
-                return
-            }
-            if let decodedData = response.data {
-                completion(.success(decodedData))
-            } else {
-                completion(.failure(AppError.unkownError))
-            }
-                
-            
         case .failure(let error):
             completion(.failure(error))
         }
     }
     
-    private func createRequest(route: Route, 
-                               method: Method,
-                                parameters: [String: Any]? = nil) -> URLRequest? {
-        let urlString = Route.baseUrl + route.description
-        guard let url = urlString.asUrl else { return nil }
-        var urlRequest = URLRequest(url: url)
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpMethod = method.rawValue
-        
-        if let params = parameters {
-            switch method {
-            case .get:
-                var urlComponent =  URLComponents(string: urlString)
-                urlComponent?.queryItems = params.map {
-                    URLQueryItem(name: $0, value: "\($1)") }
-                urlRequest.url = urlComponent?.url
-            case .post, .delete, .patch:
-                let bodyDate = try? JSONSerialization.data(withJSONObject: params, options: [])
+    // Fetch all meals from all categories and return a flat list of unique Dish objects
+    func fetchAllMealsFromAllCategories(completion: @escaping (Result<[Dish], Error>) -> Void) {
+        fetchAllCategories { result in
+            switch result {
+            case .success(let categories):
+                let group = DispatchGroup()
+                var allDishes: [Dish] = []
+                var errors: [Error] = []
+                var seenIds: Set<String> = []
+                
+                for category in categories {
+                    guard let name = category.name else { continue }
+                    group.enter()
+                    self.fetchCategoryDishes(category: name) { result in
+                        switch result {
+                        case .success(let dishes):
+                            for dish in dishes {
+                                if let id = dish.id, !seenIds.contains(id) {
+                                    allDishes.append(dish)
+                                    seenIds.insert(id)
+                                }
+                            }
+                        case .failure(let error):
+                            errors.append(error)
+                        }
+                        group.leave()
+                    }
+                }
+                
+                group.notify(queue: .main) {
+                    if !errors.isEmpty && allDishes.isEmpty {
+                        completion(.failure(errors[0]))
+                    } else {
+                        completion(.success(allDishes))
+                    }
+                }
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
-        return urlRequest
     }
 }

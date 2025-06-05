@@ -13,18 +13,27 @@ class ListDishesViewController: UIViewController {
         super.viewDidLoad()
 
         title = category.name
-        
-        // Use the dishes directly from the category object
-        dishes = category.dishes ?? []
-        
         registerCells()
-        tableView.reloadData()
+        
+        ProgressHUD.animate(symbol: "slowmo")
+//        print("Fetching dishes for category: \(category.name ?? "nil")")
+        NetworkService.shared.fetchCategoryDishes(category: category.name ?? "") { [weak self] result in
+            ProgressHUD.dismiss()
+            switch result {
+            case .success(let dishes):
+//                print("Fetched \(dishes.count) dishes for category \(self?.category.name ?? "")")
+                self?.dishes = dishes
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print("Failed to fetch dishes: \(error)")
+                ProgressHUD.error(error.localizedDescription)
+            }
+        }
     }
     
     private func registerCells() {
         tableView.register(UINib(nibName: DishListTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DishListTableViewCell.identifier)
     }
-
 }
 
 extension ListDishesViewController: UITableViewDelegate, UITableViewDataSource {

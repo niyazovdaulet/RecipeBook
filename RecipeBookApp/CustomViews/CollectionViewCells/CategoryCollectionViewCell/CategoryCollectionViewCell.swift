@@ -9,12 +9,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     static let identifier = "CategoryCollectionViewCell"
     
     func setup(category: DishCategory) {
-        print("Setting up category with name: \(category.name)")
-        
-        // Use nil-coalescing to provide a default value if category.image is nil
-        let imageName = category.image ?? "default_image"
-        categoryImageView.image = UIImage(named: imageName)
         
         categoryTitleLbl.text = category.name
+        if let urlString = category.image, let url = URL(string: urlString) {
+            categoryImageView.kf.setImage(with: url)
+        } else {
+            categoryImageView.image = UIImage(named: "default_image") // fallback
+        }
     }
 }

@@ -13,19 +13,22 @@ enum AppError: LocalizedError {
     case invalidUrl
     case serverError(String)
     case fileNotFound
+    case jsonParsingError(String)
     
     var errorDescription: String? {
         switch self {
         case .errorDecoding:
-            return "response could not be decoded"
+            return "Failed to decode the response from the server. Please try again later."
         case .unkownError:
-            return "bruh, i have no idea what's going on"
+            return "An unexpected error occurred. Please try again later."
         case .invalidUrl:
-            return "Hey, give me a valid url"
+            return "The request URL is invalid. Please check your internet connection and try again."
         case .serverError(let error):
-            return error
+            return "Server error: \(error)"
         case .fileNotFound:
             return "The requested file was not found in the app bundle."
+        case .jsonParsingError(let details):
+            return "Failed to parse server response: \(details)"
         }
     }
 }

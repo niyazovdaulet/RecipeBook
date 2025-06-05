@@ -8,24 +8,20 @@
 import Foundation
 
 enum Route {
-    static let baseUrl = "https://yummie.glitch.me/"
+    static let baseUrl = "https://www.themealdb.com/api/json/v1/1/"
     
     case fetchAllCategories
-    case addFavorite(String)
     case fetchCategoryDishes(String)
-    case fetchFavorites
+    case fetchMealDetails(String)
     
     var description: String {
         switch self {
         case .fetchAllCategories: 
-            return "/dish-categories"
-        case .addFavorite(let dishId): 
-            return "/orders/\(dishId)"
-        case .fetchCategoryDishes(let categoryId): 
-            return "/dishes/\(categoryId)"
-        case .fetchFavorites:
-            return "/orders"
-            
+            return "categories.php"
+        case .fetchCategoryDishes(let category): 
+            return "filter.php?c=\(category)"
+        case .fetchMealDetails(let mealId):
+            return "lookup.php?i=\(mealId)"
         }
     }
 }
