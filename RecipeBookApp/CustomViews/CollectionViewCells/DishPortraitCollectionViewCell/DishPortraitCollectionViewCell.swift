@@ -14,13 +14,13 @@ class DishPortraitCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var dishImageView: UIImageView!
     @IBOutlet weak var originLbl: UILabel!
-    @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var ingredientsLbl: UILabel!
     
     func setup(dish: Dish) {
         titleLbl.text = dish.name
         dishImageView.kf.setImage(with: dish.image?.asUrl)
         originLbl.text = dish.origin
-        descriptionLbl.text = dish.description
+        ingredientsLbl.text = dish.ingredients?.joined(separator: "\n")
     }
 
 }

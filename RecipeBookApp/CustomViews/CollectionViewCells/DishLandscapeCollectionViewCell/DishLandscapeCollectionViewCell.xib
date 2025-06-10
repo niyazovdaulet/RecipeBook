@@ -80,8 +80,8 @@
             </constraints>
             <size key="customSize" width="330" height="94"/>
             <connections>
-                <outlet property="descriptionLbl" destination="lpz-fQ-4Cg" id="4nV-HT-nPW"/>
                 <outlet property="dishImageView" destination="aF3-36-rRi" id="1o5-sM-8id"/>
+                <outlet property="ingredientsLbl" destination="lpz-fQ-4Cg" id="mJ1-hs-Dow"/>
                 <outlet property="originLbl" destination="DmZ-Ao-YLd" id="Fee-Kt-hOf"/>
                 <outlet property="titleLbl" destination="3qB-GV-DN5" id="vZo-yH-jNW"/>
             </connections>

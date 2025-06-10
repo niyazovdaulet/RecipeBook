@@ -8,6 +8,8 @@
 import Foundation
 
 struct Dish: Codable {
-    let id, name, description, origin, image: String?
-    
+    let id, name, origin, image: String?
+    let ingredients: [String]?
+    let measures: [String]?
+    let instructions: String?
 }

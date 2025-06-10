@@ -14,9 +14,11 @@ class DishDetailViewController: UIViewController {
     @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var imagView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var originLbl: UILabel!
+    @IBOutlet weak var ingredientsLbl: UILabel!
+    @IBOutlet weak var measuresLbl: UILabel!
+    @IBOutlet weak var instructionsLbl: UILabel!
     
     var dish: Dish!
     
@@ -82,43 +84,22 @@ class DishDetailViewController: UIViewController {
         titleLbl.text = dish.name
         originLbl.text = dish.origin
 
-        // Split description into ingredients and instructions
-        let description = dish.description ?? ""
-        let components = description.components(separatedBy: "Instructions:")
-        let ingredients = components.first?.replacingOccurrences(of: "Ingredients:", with: "").trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let instructions = components.count > 1 ? components[1].trimmingCharacters(in: .whitespacesAndNewlines) : ""
+        // Populate ingredients as a vertical list
+        if let ingredients = dish.ingredients {
+            ingredientsLbl.text = ingredients.joined(separator: "\n")
+        } else {
+            ingredientsLbl.text = "-"
+        }
 
-        let attributedText = NSMutableAttributedString()
+        // Populate measures as a vertical list
+        if let measures = dish.measures {
+            measuresLbl.text = measures.joined(separator: "\n")
+        } else {
+            measuresLbl.text = "-"
+        }
 
-        // Ingredients header
-        let ingredientsHeader = NSAttributedString(
-            string: "🍱 Ingredients\n",
-            attributes: [.font: UIFont.boldSystemFont(ofSize: 18)]
-        )
-        attributedText.append(ingredientsHeader)
-
-        // Ingredients body
-        let ingredientsBody = NSAttributedString(
-            string: ingredients + "\n\n",
-            attributes: [.font: UIFont.systemFont(ofSize: 16)]
-        )
-        attributedText.append(ingredientsBody)
-
-        // Instructions header
-        let instructionsHeader = NSAttributedString(
-            string: "📝 Instructions\n",
-            attributes: [.font: UIFont.boldSystemFont(ofSize: 18)]
-        )
-        attributedText.append(instructionsHeader)
-
-        // Instructions body
-        let instructionsBody = NSAttributedString(
-            string: instructions,
-            attributes: [.font: UIFont.systemFont(ofSize: 16)]
-        )
-        attributedText.append(instructionsBody)
-
-        descriptionLbl.attributedText = attributedText
+        // Populate instructions
+        instructionsLbl.text = dish.instructions ?? "-"
     }
     
     private func updateFavoriteButtonState() {

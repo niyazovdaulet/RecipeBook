@@ -74,8 +74,8 @@
             </constraints>
             <size key="customSize" width="158" height="295"/>
             <connections>
-                <outlet property="descriptionLbl" destination="Lqa-ck-iBp" id="xcl-NJ-5ta"/>
                 <outlet property="dishImageView" destination="cTY-cb-Mq2" id="6yK-EX-m4A"/>
+                <outlet property="ingredientsLbl" destination="Lqa-ck-iBp" id="qOa-Is-xBy"/>
                 <outlet property="originLbl" destination="Fhd-et-FfR" id="JJw-r1-YQh"/>
                 <outlet property="titleLbl" destination="Z8r-gA-fbG" id="ZFh-Tz-IAn"/>
             </connections>

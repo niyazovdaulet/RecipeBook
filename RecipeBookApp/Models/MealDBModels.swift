@@ -43,40 +43,33 @@ struct MealDBMeal: Codable {
     let strIngredient18: String?
     let strIngredient19: String?
     let strIngredient20: String?
+    let strMeasure1: String?
+    let strMeasure2: String?
+    let strMeasure3: String?
+    let strMeasure4: String?
+    let strMeasure5: String?
+    let strMeasure6: String?
+    let strMeasure7: String?
+    let strMeasure8: String?
+    let strMeasure9: String?
+    let strMeasure10: String?
+    let strMeasure11: String?
+    let strMeasure12: String?
+    let strMeasure13: String?
+    let strMeasure14: String?
+    let strMeasure15: String?
+    let strMeasure16: String?
+    let strMeasure17: String?
+    let strMeasure18: String?
+    let strMeasure19: String?
+    let strMeasure20: String?
     
-    var ingredients: String {
-        var ingredientsList: [String] = []
-        
-        // Helper function to add non-nil ingredients
-        func addIngredient(_ ingredient: String?) {
-            if let ingredient = ingredient, !ingredient.isEmpty {
-                ingredientsList.append(ingredient)
-            }
-        }
-        
-        // Add all possible ingredients
-        addIngredient(strIngredient1)
-        addIngredient(strIngredient2)
-        addIngredient(strIngredient3)
-        addIngredient(strIngredient4)
-        addIngredient(strIngredient5)
-        addIngredient(strIngredient6)
-        addIngredient(strIngredient7)
-        addIngredient(strIngredient8)
-        addIngredient(strIngredient9)
-        addIngredient(strIngredient10)
-        addIngredient(strIngredient11)
-        addIngredient(strIngredient12)
-        addIngredient(strIngredient13)
-        addIngredient(strIngredient14)
-        addIngredient(strIngredient15)
-        addIngredient(strIngredient16)
-        addIngredient(strIngredient17)
-        addIngredient(strIngredient18)
-        addIngredient(strIngredient19)
-        addIngredient(strIngredient20)
-        
-        return ingredientsList.joined(separator: ", ")
+    var ingredients: [String] {
+        return [strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5, strIngredient6, strIngredient7, strIngredient8, strIngredient9, strIngredient10, strIngredient11, strIngredient12, strIngredient13, strIngredient14, strIngredient15, strIngredient16, strIngredient17, strIngredient18, strIngredient19, strIngredient20].compactMap { $0?.trimmingCharacters(in: .whitespacesAndNewlines) }.filter { !$0.isEmpty }
+    }
+    
+    var measures: [String] {
+        return [strMeasure1, strMeasure2, strMeasure3, strMeasure4, strMeasure5, strMeasure6, strMeasure7, strMeasure8, strMeasure9, strMeasure10, strMeasure11, strMeasure12, strMeasure13, strMeasure14, strMeasure15, strMeasure16, strMeasure17, strMeasure18, strMeasure19, strMeasure20].compactMap { $0?.trimmingCharacters(in: .whitespacesAndNewlines) }.filter { !$0.isEmpty }
     }
     
     // Convert to our app's Dish model
@@ -84,9 +77,11 @@ struct MealDBMeal: Codable {
         return Dish(
             id: idMeal,
             name: strMeal,
-            description: "Ingredients: \(ingredients)\n\nInstructions: \(strInstructions)",
             origin: strArea,
-            image: strMealThumb
+            image: strMealThumb,
+            ingredients: ingredients,
+            measures: measures,
+            instructions: strInstructions
         )
     }
 }
