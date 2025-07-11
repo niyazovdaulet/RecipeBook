@@ -15,26 +15,13 @@ RecipeBookApp is an iOS application designed to help users discover and manage r
 ### Onboarding Experience
 ![Home Screen]
 <img width="300" height="624" alt="1" src="https://github.com/user-attachments/assets/808bb892-d987-481d-9040-b123e138880f" />
-
-
 *Welcome to RecipeBookApp - Home Screen*
 
-![Dish Detail View Screen]
 <img width="298" height="626" alt="2" src="https://github.com/user-attachments/assets/4df12e9f-a433-41cb-b969-d3961c9feae3" />
-
-
-*Dish Detail View - Detailed view of a dish with ingredients, instructions, and nutritional information*
-
 <img width="296" height="626" alt="3" src="https://github.com/user-attachments/assets/b03569e1-d7fe-4006-8ffc-49a141ac3c89" />
-
-*Scrollable Dish Detail View with the youtube link for the recipe and share buttons on top right corner of the screen*
-
 <img width="297" height="623" alt="4" src="https://github.com/user-attachments/assets/be5c8c91-0163-4741-8569-8eeb489d7c59" />
-
 <img width="300" height="620" alt="6" src="https://github.com/user-attachments/assets/e4cab376-7e95-4ed6-bfa8-8d219b123df8" />
-
 <img width="303" height="623" alt="7" src="https://github.com/user-attachments/assets/bfdc8cf1-4bf1-415f-8555-a735ac2f49fe" />
-
 <img width="308" height="622" alt="8" src="https://github.com/user-attachments/assets/a35754d5-1e52-4677-b583-bae7ca146fd0" />
 
 
