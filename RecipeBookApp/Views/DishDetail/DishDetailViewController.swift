@@ -99,7 +99,11 @@ class DishDetailViewController: UIViewController {
         }
 
         // Populate instructions
-        instructionsLbl.text = dish.instructions ?? "-"
+        if let instructions = dish.instructions, !instructions.isEmpty {
+            instructionsLbl.text = "📝 Instructions\n" + instructions
+        } else {
+            instructionsLbl.text = "📝 Instructions\n-"
+        }
     }
     
     private func updateFavoriteButtonState() {
