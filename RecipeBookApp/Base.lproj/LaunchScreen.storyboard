@@ -17,21 +17,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="KWW-tZ-J92">
-                                <rect key="frame" x="100" y="466" width="290" height="57"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="Sy9-Tc-uYh"/>
-                                    <constraint firstAttribute="width" constant="290" id="fHI-3D-qFf"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="KWW-tZ-J92">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One app, endless flavors." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQd-H2-Gt3">
+                                <rect key="frame" x="53" y="375" width="284" height="25"/>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.94117647059999998" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Ef0-k5-PHY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana-BoldItalic" family="Verdana" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KWW-tZ-J92" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="372" id="MmR-MZ-pYZ"/>
-                            <constraint firstItem="KWW-tZ-J92" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TCP-ps-tcH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KWW-tZ-J92" secondAttribute="bottom" constant="253" id="bui-WU-Rve"/>
-                            <constraint firstItem="KWW-tZ-J92" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="obM-53-eiX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aQd-H2-Gt3" secondAttribute="trailing" constant="53" id="GWj-es-nLi"/>
+                            <constraint firstItem="KWW-tZ-J92" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="HlB-UP-ZmI"/>
+                            <constraint firstItem="aQd-H2-Gt3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="53" id="K46-4Z-b9P"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aQd-H2-Gt3" secondAttribute="bottom" constant="376" id="MG3-68-5Zw"/>
+                            <constraint firstItem="aQd-H2-Gt3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="281" id="MMc-DG-aa3"/>
+                            <constraint firstItem="KWW-tZ-J92" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Q4f-hJ-svV"/>
+                            <constraint firstItem="KWW-tZ-J92" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Tsa-Bg-jCX"/>
+                            <constraint firstAttribute="bottom" secondItem="KWW-tZ-J92" secondAttribute="bottom" id="sLu-1O-KaW"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -41,7 +51,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchscreen" width="229.5" height="46.5"/>
+        <image name="launchscreen" width="195" height="500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

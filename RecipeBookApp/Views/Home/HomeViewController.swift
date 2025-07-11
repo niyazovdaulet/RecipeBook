@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
          let loadingStart = Date()
          fetchCategories { [weak self] in
              let elapsed = Date().timeIntervalSince(loadingStart)
-             let delay = max(0, 9.5 - elapsed)
+             let delay = max(0, 1.5 - elapsed)
              DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                  ProgressHUD.dismiss()
                  self?.hideBlockingView()

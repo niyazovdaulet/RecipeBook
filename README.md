@@ -11,7 +11,57 @@
   Discover, cook, and save your favorite recipes with a beautiful, modern iOS app.
 </p>
 
+<<<<<<< HEAD
 ---
+=======
+## Screenshots
+
+### Onboarding Experience
+![Onboarding Slide 1](Screenshots/1.png)
+*Welcome to RecipeBookApp - Flavours at Your Fingertips*
+
+![Onboarding Slide 2](Screenshots/2.png)
+*Unlock Culinary Excellence - Cook like a pro*
+
+![Onboarding Slide 3](Screenshots/3.png)
+*Savour the Simplicity - Get cooking today*
+
+### Main App Interface
+![Home Screen](Screenshots/4.png)
+*Home screen featuring food categories, popular dishes, and special dishes*
+
+![Category Dishes](Screenshots/5.png)
+*List of dishes within a selected category*
+
+![Dish Details](Screenshots/6.png)
+*Detailed view of a dish with ingredients, instructions, and nutritional information*
+
+![Favorites](Screenshots/7.png)
+*User's favorite dishes collection*
+
+![Additional Feature](Screenshots/8.png)
+*Additional app functionality*
+
+## Project Structure
+- **AppDelegate.swift**: Sets up the app's main configuration, including UI customization.
+- **Info.plist**: Contains app metadata and configuration settings.
+- **Models**:
+  - `Dish.swift`: Represents a dish with properties like id, name, description, image, and calories.
+  - `DishCategory.swift`: Represents a category of dishes.
+  - `AllDishes.swift`: Contains collections of categories, popular dishes, and special dishes.
+  - `Favorite.swift`: Represents a favorite dish.
+  - `OnboardingSlide.swift`: Represents a slide in the onboarding process.
+- **Views**:
+  - **Home**: Contains the main screen with categories, popular dishes, and special dishes.
+  - **ListDishes**: Displays a list of dishes within a selected category.
+  - **DishDetail**: Shows detailed information about a dish.
+  - **ListFavorites**: Displays the user's favorite dishes.
+  - **Onboarding**: Introduces users to the app with informative slides.
+- **CustomViews**:
+  - **CollectionViewCells**: Custom cells for displaying categories and dishes in collection views.
+  - **TableViewCells**: Custom cells for displaying dishes in table views.
+  - **CardView**: A custom view for displaying cards with shadow effects.
+>>>>>>> 2a3a5c3 (Completed README)
 
 ## 🚀 Overview
 RecipeBookApp is a modern iOS application designed to help users discover, cook, and manage recipes. With a sleek interface, onboarding experience, and robust features, it makes culinary exploration delightful and easy.
