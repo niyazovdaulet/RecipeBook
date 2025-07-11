@@ -10,6 +10,34 @@ RecipeBookApp is an iOS application designed to help users discover and manage r
 - **Favorites**: Allows users to add dishes to their favorites and view them later.
 - **Onboarding**: Introduces users to the app with a series of informative slides.
 
+## Screenshots
+
+### Onboarding Experience
+![Onboarding Slide 1](Screenshots/1.png)
+*Welcome to RecipeBookApp - Flavours at Your Fingertips*
+
+![Onboarding Slide 2](Screenshots/2.png)
+*Unlock Culinary Excellence - Cook like a pro*
+
+![Onboarding Slide 3](Screenshots/3.png)
+*Savour the Simplicity - Get cooking today*
+
+### Main App Interface
+![Home Screen](Screenshots/4.png)
+*Home screen featuring food categories, popular dishes, and special dishes*
+
+![Category Dishes](Screenshots/5.png)
+*List of dishes within a selected category*
+
+![Dish Details](Screenshots/6.png)
+*Detailed view of a dish with ingredients, instructions, and nutritional information*
+
+![Favorites](Screenshots/7.png)
+*User's favorite dishes collection*
+
+![Additional Feature](Screenshots/8.png)
+*Additional app functionality*
+
 ## Project Structure
 - **AppDelegate.swift**: Sets up the app's main configuration, including UI customization.
 - **Info.plist**: Contains app metadata and configuration settings.
