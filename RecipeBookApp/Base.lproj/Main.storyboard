@@ -413,7 +413,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="371.66666666666669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jz7-bB-P4P">
-                                                <rect key="frame" x="24" y="280" width="272" height="22"/>
+                                                <rect key="frame" x="24" y="280" width="272" height="21.666666666666686"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="272" id="syR-yw-HmS"/>
                                                 </constraints>
@@ -458,7 +458,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="American" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zx-ao-KeK">
-                                                <rect key="frame" x="304" y="280" width="62" height="22"/>
+                                                <rect key="frame" x="304" y="280" width="62" height="21.666666666666686"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="54" id="VRd-bz-E2U"/>
                                                 </constraints>
@@ -468,7 +468,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tO-bF-T26">
                                                 <rect key="frame" x="24" y="345.66666666666669" width="342" height="16"/>
-                                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W4" family="Hiragino Sans" pointSize="16"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>

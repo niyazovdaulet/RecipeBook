@@ -23,6 +23,7 @@ struct MealDBMeal: Codable {
     let strArea: String
     let strMealThumb: String
     let strInstructions: String
+    let strYoutube: String?
     let strIngredient1: String?
     let strIngredient2: String?
     let strIngredient3: String?
@@ -81,7 +82,8 @@ struct MealDBMeal: Codable {
             image: strMealThumb,
             ingredients: ingredients,
             measures: measures,
-            instructions: strInstructions
+            instructions: strInstructions,
+            youtubeUrl: strYoutube
         )
     }
 }

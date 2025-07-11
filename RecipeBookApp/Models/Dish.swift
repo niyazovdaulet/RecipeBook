@@ -12,4 +12,5 @@ struct Dish: Codable {
     let ingredients: [String]?
     let measures: [String]?
     let instructions: String?
+    let youtubeUrl: String?
 }
