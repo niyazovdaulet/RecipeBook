@@ -13,11 +13,11 @@ RecipeBookApp is an iOS application designed to help users discover and manage r
 ## Screenshots
 
 ### Onboarding Experience
-![Home Screen]
-<img width="300" height="624" alt="1" src="https://github.com/user-attachments/assets/808bb892-d987-481d-9040-b123e138880f" />
-*Welcome to RecipeBookApp - Home Screen*
+
+*Welcome to RecipeBookApp*
 
 <p align="center">
+ <img width="200" height="450" alt="1" src="https://github.com/user-attachments/assets/808bb892-d987-481d-9040-b123e138880f" />
  <img width="200" height="450" alt="1" src="https://github.com/user-attachments/assets/808bb892-d987-481d-9040-b123e138880f" />
 <img width="200" height="450" alt="2" src="https://github.com/user-attachments/assets/4df12e9f-a433-41cb-b969-d3961c9feae3" />
 <img width="200" height="450" alt="3" src="https://github.com/user-attachments/assets/b03569e1-d7fe-4006-8ffc-49a141ac3c89" />
