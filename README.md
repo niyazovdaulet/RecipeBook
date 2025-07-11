@@ -13,7 +13,9 @@ RecipeBookApp is an iOS application designed to help users discover and manage r
 ## Screenshots
 
 ### Onboarding Experience
-![Onboarding Slide 1](Screenshots/1.png)
+![Onboarding Slide 1]
+<img width="308" height="622" alt="8" src="https://github.com/user-attachments/assets/4ac62d4a-4e1f-45db-b67d-d47d9b1b5889" />
+
 *Welcome to RecipeBookApp - Flavours at Your Fingertips*
 
 ![Onboarding Slide 2](Screenshots/2.png)
