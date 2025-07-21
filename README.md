@@ -86,6 +86,11 @@ RecipeBookApp is a modern iOS application designed to help users discover, cook,
 ## 🤝 Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
+## 📢 Attribution
+This app uses TheMealDB API for recipe content.  
+Data © [TheMealDB](https://www.themealdb.com/) - Used under terms of use.
+
+
 ---
 
 ## 📄 License
