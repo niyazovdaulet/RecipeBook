@@ -45,7 +45,6 @@ RecipeBookApp is a modern iOS application designed to help users discover, cook,
 ## 🖼️ Screenshots
 <p align="center">
  <img width="200" height="450" alt="1" src="https://github.com/user-attachments/assets/808bb892-d987-481d-9040-b123e138880f" />
- <img width="200" height="450" alt="1" src="https://github.com/user-attachments/assets/808bb892-d987-481d-9040-b123e138880f" />
  <img width="200" height="450" alt="2" src="https://github.com/user-attachments/assets/4df12e9f-a433-41cb-b969-d3961c9feae3" />
  <img width="200" height="450" alt="3" src="https://github.com/user-attachments/assets/b03569e1-d7fe-4006-8ffc-49a141ac3c89" />
  <img width="200" height="450" alt="4" src="https://github.com/user-attachments/assets/be5c8c91-0163-4741-8569-8eeb489d7c59" />
@@ -103,51 +102,11 @@ RecipeBookApp is a modern iOS application designed to help users discover, cook,
 
 ---
 
-## 🖼️ Screenshots
-<p align="center">
- <img width="200" height="450" alt="1" src="https://github.com/user-attachments/assets/808bb892-d987-481d-9040-b123e138880f" />
- <img width="200" height="450" alt="1" src="https://github.com/user-attachments/assets/808bb892-d987-481d-9040-b123e138880f" />
- <img width="200" height="450" alt="2" src="https://github.com/user-attachments/assets/4df12e9f-a433-41cb-b969-d3961c9feae3" />
- <img width="200" height="450" alt="3" src="https://github.com/user-attachments/assets/b03569e1-d7fe-4006-8ffc-49a141ac3c89" />
- <img width="200" height="450" alt="4" src="https://github.com/user-attachments/assets/be5c8c91-0163-4741-8569-8eeb489d7c59" />
- <img width="200" height="450" alt="6" src="https://github.com/user-attachments/assets/e4cab376-7e95-4ed6-bfa8-8d219b123df8" />
- <img width="200" height="450" alt="7" src="https://github.com/user-attachments/assets/bfdc8cf1-4bf1-415f-8555-a735ac2f49fe" />
- <img width="200" height="450" alt="8" src="https://github.com/user-attachments/assets/a35754d5-1e52-4677-b583-bae7ca146fd0" />
-</p>
-
----
-
-## 📂 Project Structure
-- **AppDelegate.swift**: App configuration and UI customization.
-- **Models/**: Data models for dishes, categories, favorites, onboarding, and API responses.
-- **Views/**: Home, List, Detail, Favorites, and Onboarding screens.
-- **CustomViews/**: Custom collection/table view cells and CardView.
-- **Networking/**: API integration, error handling, and data fetching.
-- **Extensions/**: Utility extensions for String, UIViewController, etc.
-
----
-
 ## 📦 Dependencies
 - [Kingfisher](https://github.com/onevcat/Kingfisher) - Fast image downloading & caching.
 - [ProgressHUD](https://github.com/relatedcode/ProgressHUD) - Modern loading indicators and feedback.
 
 =======
-## 📂 Project Structure
-- **AppDelegate.swift**: App configuration and UI customization.
-- **Models/**: Data models for dishes, categories, favorites, onboarding, and API responses.
-- **Views/**: Home, List, Detail, Favorites, and Onboarding screens.
-- **CustomViews/**: Custom collection/table view cells and CardView.
-- **Networking/**: API integration, error handling, and data fetching.
-- **Extensions/**: Utility extensions for String, UIViewController, etc.
-
----
-
-## 📦 Dependencies
-- [Kingfisher](https://github.com/onevcat/Kingfisher) - Fast image downloading & caching.
-- [ProgressHUD](https://github.com/relatedcode/ProgressHUD) - Modern loading indicators and feedback.
-
-
----
 
 ## 🚦 Getting Started
 1. Clone the repository.
@@ -168,7 +127,7 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 This app uses TheMealDB API for recipe content.  
 Data © [TheMealDB](https://www.themealdb.com/) - Used under terms of use.
 
-
+---
 
 # Privacy Policy
 
@@ -177,8 +136,6 @@ RecipeBookApp does not collect, store, or share any personal information.
 The app fetches recipe data from a third-party public API (TheMealDB), and displays content for user convenience. No user data is sent or stored by the app itself.
 
 For any questions, please contact [17niyazov@gmail.com]
-
-
 
 ---
 
