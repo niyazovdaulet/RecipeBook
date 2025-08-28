@@ -1,9 +1,3 @@
-//
-//  AppDelegate.swift
-//  RecipeBookApp
-//
-//  Created by Daulet on 23/10/2023.
-//
 
 import UIKit
 

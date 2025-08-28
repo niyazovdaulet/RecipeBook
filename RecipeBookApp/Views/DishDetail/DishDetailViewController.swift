@@ -1,9 +1,3 @@
-//
-//  DishDetailViewController.swift
-//  RecipeBookApp
-//
-//  Created by Daulet on 30/10/2023.
-//
 
 import UIKit
 import Kingfisher
@@ -39,7 +33,8 @@ class DishDetailViewController: UIViewController {
         styleImageView()
         styleButton()
         styleTitleLabel()
-        fetchAndPopulateDish()
+        styleLabels() // Call styleLabels here as well
+        populateView() // Populate view directly with existing dish data
         updateFavoriteButtonState()
     }
     
@@ -209,6 +204,7 @@ class DishDetailViewController: UIViewController {
     }
     
     private func populateView() {
+        
         imagView.kf.setImage(with: dish.image?.asUrl)
         titleLbl.text = dish.name
         originLbl.text = dish.origin

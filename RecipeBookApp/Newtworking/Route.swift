@@ -1,9 +1,3 @@
-//
-//  Route.swift
-//  RecipeBookApp
-//
-//  Created by Daulet on 31/10/2023.
-//
 
 import Foundation
 

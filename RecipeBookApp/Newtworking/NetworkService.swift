@@ -1,17 +1,15 @@
-//
-//  NetworkService.swift
-//  RecipeBookApp
-//
-//  Created by Daulet on 31/10/2023.
-//
 
 import Foundation
 
-struct NetworkService {
+class NetworkService {
     
     static let shared = NetworkService()
     
     private init() {}
+    
+    // Rate limiting properties
+    private var lastRequestTime: Date = Date.distantPast
+    private let minimumRequestInterval: TimeInterval = 0.5 // 500ms between requests
     
     func fetchAllCategories(completion: @escaping (Result<[DishCategory], Error>) -> Void) {
         request(route: .fetchAllCategories, method: .get) { (result: Result<MealDBCategoryResponse, Error>) in
@@ -65,6 +63,7 @@ struct NetworkService {
                     }
                 }
             case .failure(let error):
+                print("❌ Failed to fetch category dishes for '\(category)': \(error)")
                 completion(.failure(error))
             }
         }
@@ -98,52 +97,71 @@ struct NetworkService {
         request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                DispatchQueue.main.async {
-                    completion(.failure(error))
+        // Add rate limiting delay
+        let now = Date()
+        let timeSinceLastRequest = now.timeIntervalSince(lastRequestTime)
+        let delay = max(0, minimumRequestInterval - timeSinceLastRequest)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
+            guard let self = self else { return }
+            self.lastRequestTime = Date()
+            
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
+                    }
+                    return
                 }
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse else {
-                DispatchQueue.main.async {
-                    completion(.failure(AppError.unkownError))
+                
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    DispatchQueue.main.async {
+                        completion(.failure(AppError.unkownError))
+                    }
+                    return
                 }
-                return
-            }
-            
-            guard (200...299).contains(httpResponse.statusCode) else {
-                DispatchQueue.main.async {
-                    completion(.failure(AppError.serverError("Server returned status code \(httpResponse.statusCode)")))
+                
+                // Handle rate limiting
+                if httpResponse.statusCode == 429 {
+                    print("⚠️ Rate limit hit for \(route.description), retrying in 2 seconds...")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        self.request(route: route, method: method, parameters: parameters, completion: completion)
+                    }
+                    return
                 }
-                return
-            }
-            
-            guard let data = data else {
-                DispatchQueue.main.async {
-                    completion(.failure(AppError.unkownError))
+                
+                guard (200...299).contains(httpResponse.statusCode) else {
+                    DispatchQueue.main.async {
+                        completion(.failure(AppError.serverError("Server returned status code \(httpResponse.statusCode)")))
+                    }
+                    return
                 }
-                return
-            }
-            
-            // Print raw response for debugging
-            if let jsonString = String(data: data, encoding: .utf8) {
-//                print("Raw response for \(route.description): \(jsonString)")
-            }
-            
-            // Validate that the response is JSON
-            guard let _ = try? JSONSerialization.jsonObject(with: data) else {
-                DispatchQueue.main.async {
-                    completion(.failure(AppError.jsonParsingError("Response is not valid JSON")))
+                
+                guard let data = data else {
+                    DispatchQueue.main.async {
+                        completion(.failure(AppError.unkownError))
+                    }
+                    return
                 }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.handleResponse(result: .success(data), completion: completion)
-            }
-        }.resume()
+                
+                // Print raw response for debugging
+                if let jsonString = String(data: data, encoding: .utf8) {
+//                    print("Raw response for \(route.description): \(jsonString)")
+                }
+                
+                // Validate that the response is JSON
+                guard let _ = try? JSONSerialization.jsonObject(with: data) else {
+                    DispatchQueue.main.async {
+                        completion(.failure(AppError.jsonParsingError("Response is not valid JSON")))
+                    }
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.handleResponse(result: .success(data), completion: completion)
+                }
+            }.resume()
+        }
     }
     
     private func handleResponse<T: Decodable>(result: Result<Data, Error>, completion: @escaping(Result<T, Error>) -> Void) {
@@ -185,27 +203,41 @@ struct NetworkService {
         fetchAllCategories { result in
             switch result {
             case .success(let categories):
+                
+                // Only fetch from a limited number of popular categories to prevent rate limiting
+                let popularCategories = ["Chicken", "Beef", "Seafood", "Dessert", "Vegetarian"]
+                let limitedCategories = categories.filter { category in
+                    guard let name = category.name else { return false }
+                    return popularCategories.contains(name)
+                }
+                
+                
                 let group = DispatchGroup()
                 var allDishes: [Dish] = []
                 var errors: [Error] = []
                 var seenIds: Set<String> = []
                 
-                for category in categories {
+                for (index, category) in limitedCategories.enumerated() {
                     guard let name = category.name else { continue }
                     group.enter()
-                    self.fetchCategoryDishes(category: name) { result in
-                        switch result {
-                        case .success(let dishes):
-                            for dish in dishes {
-                                if let id = dish.id, !seenIds.contains(id) {
-                                    allDishes.append(dish)
-                                    seenIds.insert(id)
+                    
+                    // Add delay between category requests to prevent rate limiting
+                    let delay = Double(index) * 0.5
+                    DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                        self.fetchCategoryDishes(category: name) { result in
+                            switch result {
+                            case .success(let dishes):
+                                for dish in dishes {
+                                    if let id = dish.id, !seenIds.contains(id) {
+                                        allDishes.append(dish)
+                                        seenIds.insert(id)
+                                    }
                                 }
+                            case .failure(let error):
+                                errors.append(error)
                             }
-                        case .failure(let error):
-                            errors.append(error)
+                            group.leave()
                         }
-                        group.leave()
                     }
                 }
                 

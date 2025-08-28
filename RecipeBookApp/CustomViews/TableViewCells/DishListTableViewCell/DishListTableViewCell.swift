@@ -1,9 +1,4 @@
-//
-//  DishListTableViewCell.swift
-//  RecipeBookApp
-//
-//  Created by Daulet on 30/10/2023.
-//
+
 
 import UIKit
 

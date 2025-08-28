@@ -1,9 +1,3 @@
-//
-//  ListFavoritesViewController.swift
-//  RecipeBookApp
-//
-//  Created by Daulet on 31/10/2023.
-//
 
 import UIKit
 import ProgressHUD
@@ -59,7 +53,7 @@ extension ListFavoritesViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = DishDetailViewController.instiatiate()
+        let controller = DishDetailViewController.instantiate()
         controller.dish = favorites[indexPath.row].dish
         navigationController?.pushViewController(controller, animated: true)
     }
