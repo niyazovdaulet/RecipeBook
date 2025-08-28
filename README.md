@@ -12,11 +12,6 @@
 </p>
 
 ---
-=======
-## Screenshots
-=======
----
-
 
 ## 🚀 Overview
 RecipeBookApp is a modern iOS application designed to help users discover, cook, and manage recipes. With a sleek interface, onboarding experience, and robust features, it makes culinary exploration delightful and easy.
@@ -80,10 +75,7 @@ RecipeBookApp is a modern iOS application designed to help users discover, cook,
   - **CollectionViewCells**: Custom cells for displaying categories and dishes in collection views.
   - **TableViewCells**: Custom cells for displaying dishes in table views.
   - **CardView**: A custom view for displaying cards with shadow effects.
->>>>>>> 2a3a5c3 (Completed README)
 
-## 🚀 Overview
-RecipeBookApp is a modern iOS application designed to help users discover, cook, and manage recipes. With a sleek interface, onboarding experience, and robust features, it makes culinary exploration delightful and easy.
 
 ---
 
