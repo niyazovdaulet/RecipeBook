@@ -16,7 +16,7 @@
 ## Screenshots
 =======
 ---
->>>>>>> 603d9b4 (LaunchScreen added)
+
 
 ## 🚀 Overview
 RecipeBookApp is a modern iOS application designed to help users discover, cook, and manage recipes. With a sleek interface, onboarding experience, and robust features, it makes culinary exploration delightful and easy.
@@ -154,7 +154,7 @@ RecipeBookApp is a modern iOS application designed to help users discover, cook,
 - [Kingfisher](https://github.com/onevcat/Kingfisher) - Fast image downloading & caching.
 - [ProgressHUD](https://github.com/relatedcode/ProgressHUD) - Modern loading indicators and feedback.
 
->>>>>>> 603d9b4 (LaunchScreen added)
+
 ---
 
 ## 🚦 Getting Started
